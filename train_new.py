@@ -53,7 +53,7 @@ trainer = pl.Trainer(
     strategy="ddp", 
     precision="16-mixed", 
     callbacks=[logger],
-    accumulate_grad_batches=4,
+    accumulate_grad_batches=16,
     max_epochs=15,
     limit_train_batches=0.5
 )
