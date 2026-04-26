@@ -10,3 +10,4 @@ einops
 share
 open_clip_torch
 xformers
+bitsandbytes

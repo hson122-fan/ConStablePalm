@@ -27,6 +27,7 @@ from ldm.models.autoencoder import IdentityFirstStage, AutoencoderKL
 from ldm.modules.diffusionmodules.util import make_beta_schedule, extract_into_tensor, noise_like
 from ldm.models.diffusion.ddim import DDIMSampler
 
+import bitsandbytes as bnb
 
 __conditioning_keys__ = {'concat': 'c_concat',
                          'crossattn': 'c_crossattn',
@@ -516,7 +517,7 @@ class DDPM(pl.LightningModule):
         params = list(self.model.parameters())
         if self.learn_logvar:
             params = params + [self.logvar]
-        opt = torch.optim.AdamW(params, lr=lr)
+        opt = bnb.optim.AdamW8bit(params, lr=lr)
         return opt
 
 
