@@ -7,4 +7,6 @@ shapely
 opencv-python
 omegaconf
 einops
-
+share
+open_clip_torch
+xformers
