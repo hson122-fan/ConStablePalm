@@ -43,7 +43,7 @@ model.only_mid_control = only_mid_control
 dataset = MyDataset(data_dir=args.data_dir)
 print(f"Đã tải thành công {len(dataset)} mẫu dữ liệu.")
 
-dataloader = DataLoader(dataset, num_workers=0, batch_size=batch_size, shuffle=True)
+dataloader = DataLoader(dataset, num_workers=2, batch_size=batch_size, shuffle=True)
 logger = ImageLogger(batch_frequency=logger_freq)
 trainer = pl.Trainer(
     accelerator='gpu', 
