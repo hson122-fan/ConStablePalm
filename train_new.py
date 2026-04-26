@@ -6,7 +6,9 @@ from tutorial_dataset_new import MyDataset
 from cldm.logger import ImageLogger
 from cldm.model import create_model, load_state_dict
 import argparse
+import os
 
+os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
     # 1. Khởi tạo đối tượng đọc tham số
 parser = argparse.ArgumentParser(description="Dataset Loader cho ControlNet")
     
