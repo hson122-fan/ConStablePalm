@@ -24,7 +24,7 @@ print(f"Đang tiến hành đọc dữ liệu từ: {args.data_dir}")
 
 # Configs
 resume_path = './models/control_sd15_ini.ckpt'
-batch_size = 4
+batch_size = 1
 logger_freq = 300
 learning_rate = 1e-5
 sd_locked = True
@@ -51,7 +51,8 @@ trainer = pl.Trainer(
     strategy="ddp", 
     precision=32, 
     callbacks=[logger],
-    accumulate_grad_batches=4 
+    accumulate_grad_batches=64,
+    max_epochs=15
 )
 
 
