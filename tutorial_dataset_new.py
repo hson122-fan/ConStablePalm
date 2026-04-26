@@ -33,6 +33,9 @@ class MyDataset(Dataset):
         source = cv2.imread(source_path)
         target = cv2.imread(target_path)
 
+        image_size = (512, 512)
+        source = cv2.resize(source, image_size)
+        target = cv2.resize(target, image_size)
         # Do not forget that OpenCV read images in BGR order.
         source = cv2.cvtColor(source, cv2.COLOR_BGR2RGB)
         target = cv2.cvtColor(target, cv2.COLOR_BGR2RGB)
