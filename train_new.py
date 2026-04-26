@@ -54,9 +54,11 @@ trainer = pl.Trainer(
     precision="16-mixed", 
     callbacks=[logger],
     accumulate_grad_batches=64,
-    max_epochs=15
+    max_epochs=15,
+    limit_train_batches=0.5
 )
 
 
 # Train!
 trainer.fit(model, dataloader)
+trainer.save_checkpoint("./models/controlnet_final_v1.ckpt")
